@@ -66,7 +66,7 @@ user = ${DB_USER}
 password = ${DB_PASS}
 hosts = 127.0.0.1
 dbname = mailserver
-query = SELECT 1 FROM virtual_users WHERE email='%s' AND active=1
+query = SELECT CONCAT(SUBSTRING_INDEX(email,'@',-1), '/', SUBSTRING_INDEX(email,'@',1), '/Maildir/') FROM virtual_users WHERE email='%s' AND active=1
 EOF
 
 cat > /etc/postfix/mysql-virtual-alias-maps.cf <<EOF

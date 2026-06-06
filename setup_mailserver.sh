@@ -123,4 +123,18 @@ sed -i "/\$config\['plugins'\] = \[/a \    'admin_button'," /var/www/roundcube/c
 sed -i "/\$config\['username_domain'\]/d" /var/www/roundcube/config/config.inc.php
 echo "\$config['username_domain'] = '${DOMAIN}';" >> /var/www/roundcube/config/config.inc.php
 
+echo "7. Configuring UFW Firewall..."
+apt install -y ufw
+ufw allow 22/tcp
+ufw allow 80/tcp
+ufw allow 443/tcp
+ufw allow 25/tcp
+ufw allow 587/tcp
+ufw allow 465/tcp
+ufw allow 143/tcp
+ufw allow 993/tcp
+ufw allow 110/tcp
+ufw allow 995/tcp
+ufw --force enable
+
 echo "Setup Complete!"

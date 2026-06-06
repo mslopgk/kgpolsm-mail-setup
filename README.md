@@ -28,6 +28,7 @@ This repository contains the scripts and files needed to deploy a fully function
    ```
 
 ## Files
-- `setup_mailserver.sh`: Master installation bash script.
+- `setup_mailserver.sh`: Master installation bash script (Configures DB, Mail Servers, Roundcube Plugin, and UFW Firewall ports).
 - `admin.php`: The clean, minimalistic PHP Admin dashboard.
 - `admin_button.php`: The Roundcube plugin that detects admin users and injects the dashboard button.
+- `setup_ufw.py`: Standalone Python script for remote UFW configuration.
